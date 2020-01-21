@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Practice Block</title>
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./assets/css/plyr.css">
+
+    <link rel="stylesheet" href="./assets/css/katex.min.css">
+
+    <link rel="stylesheet" href="./assets/css/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <link rel="shortcut icon" type="image/png" href="./assets/img/udacimak.png" />
+
+</head>
+
+
+
+<body>
+
+    <div class="wrapper">
+
+       
+
+        <div id="content">
+
+
+
+            <main class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="ud-atom">
+
+                            <h3></h3>
+
+                            <div>
+
+                                <h1 id="lets-do-some-coding-practice">Assignment 2 - Practice a Block</h1>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="ud-atom">
+
+                            <h3></h3>
+
+                            <div>
+
+                                <h2 id="here’s-a-quick-look-at-the-steps-you’ll-complete">Here’s a quick look at the steps you’ll complete.</h2>
+
+                                <blockquote>
+
+                                    <table>
+
+                                        <thead>
+
+                                            <tr>
+
+                                                <th id="**step_1**"><strong>Step 1</strong></th>
+
+                                                <th id="implement_¨c0c_method_in_the_**block**_class">Implement <code>generateHash</code> method in the <strong>Block</strong> class</th>
+
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td><strong>Step 2</strong></td>
+
+                                                <td>Use Promises to generate the hash asynchronously</td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td><strong>Step 3</strong></td>
+
+                                                <td>Run the application <code>node app.js</code></td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </blockquote>
+
+                                <p>Each step you’ll take to complete this exercise is called out in comments throughout the code. You can find more details and guidance about each of these steps in the text provided below the code. </p>
+
+                                <p>Let’s get started!</p>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="ud-atom">
+
+                            <h3></h3>
+
+                            <div>
+
+                                <h2 id="step-1-implement-generatehash-method-in-the-block-class">Step 1. Implement <code>generateHash</code> method in the Block class</h2>
+
+                                <p>In the <code>block.js</code> file, you will find the <code>Block</code> class. We have added <code>generateHash</code> method. This method should take the block object, generate the hash, and reassign to the <code>hash</code>                                    property in the same block.</p>
+
+                                <p>You might be wondering, why are we using <code>let self = this;</code>? You will have to use Promises when you implement the method. By using <code>let self = this;</code>, you can access the <code>this</code> object inside
+
+                                    the Promise code.</p>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="ud-atom">
+
+                            <h3></h3>
+
+                            <div>
+
+                                <h2 id="step-2-use-promises-to-generate-the-hash-asynchronously">Step 2. Use Promises to generate the hash asynchronously</h2>
+
+                                <p>This is not a course of Promises, but we want to help you to get starter with this new concept or refresh your knowledge.</p>
+
+                                <p><strong>Note</strong>: We introduce Promises here to help you evaluate your understanding of this feature because you will need to be able to use Promises in order to pass your project.</p>
+
+                                <p>Promises allow you to run some code asynchronously. To create a promise, you'll need:</p>
+
+                                <pre><code>var promise = new Promise(function(resolve, reject) {
+
+  // do a thing, possibly async, then…
+
+
+
+  if (/* everything turned out fine */) {
+
+    resolve("Stuff worked!");
+
+  }
+
+  else {
+
+    reject(Error("It broke"));
+
+  }
+
+});</code></pre>
+
+                                <p>The Promise constructor takes one argument, a callback with two parameters - <code>resolve</code> and <code>reject</code>. This means: Do something within the callback (perhaps something asynchronous), then call <code>resolve</code>                                    if everything worked; otherwise call <code>reject</code>.</p>
+
+                                <p>And how you will read the result from the Promise?</p>
+
+                                <pre><code>promise.then(function(result) {
+
+  console.log(result); // "Stuff worked!"
+
+}, function(err) {
+
+  console.log(err); // Error: "It broke"
+
+});</code></pre>
+
+                                <h3 id="additional-resources">Additional Resources</h3>
+
+                                <p>This is a very important skill that you will need for the rest of the program, so take your time in reviewing these resources:</p>
+
+                                <ul>
+
+                                    <li><a href="https://developers.google.com/web/fundamentals/primers/promises" target="_blank">Google Developers Promises</a></li>
+
+                                    <li><a href="https://www.udacity.com/course/javascript-promises--ud898" target="_blank">Udacity Free Course Promises</a></li>
+
+                                </ul>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="ud-atom">
+
+                            <h3></h3>
+
+                            <div>
+
+                                <h2 id="step-3-run-the-application-node-appjs">Step 3. Run the application node <code>app.js</code></h2>
+
+                                <h3 id="appjs-file"><code>App.js</code> File</h3>
+
+                                <pre><code>//Import the Block class
+
+const BlockClass = require('./block.js');
+
+
+
+// Creating a block object
+
+const block = new Block('Test Block');
+
+
+
+// Generating the block hash
+
+block.generateHash().then((result) =&gt; {
+
+    console.log(`Block Hash: ${result.hash}`);
+
+    console.log(`Block: ${JSON.stringify(result)}`);
+
+}).catch((error) =&gt; {console.log(error)});
+
+
+
+#####################################################################
+
+## Step 3: Run the application in node.js                          ##
+
+##     -- See details for this step in the text below --           ##
+
+#####################################################################
+
+
+
+// From the terminal: `cd` into Project folder
+
+// From the terminal: Run `node app.js` to run the code</code></pre>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="divider"></div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="./assets/js/jquery-3.3.1.min.js"></script>
+
+    <script src="./assets/js/plyr.polyfilled.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./assets/js/katex.min.js"></script>
+
+    <script>
+
+        // Initialize Plyr video players
+
+        const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+
+
+        // render math equations
+
+        let elMath = document.getElementsByClassName('mathquill');
+
+        for (let i = 0, len = elMath.length; i < len; i += 1) {
+
+            const el = elMath[i];
+
+
+
+            katex.render(el.textContent, el, {
+
+                throwOnError: false
+
+            });
+
+        }
+
+
+
+        // this hack will make sure Bootstrap tabs work when using Handlebars
+
+        if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+
+            $("#question-tabs a.nav-link").on('click', function() {
+
+                $("#question-tab-contents .tab-pane").hide();
+
+                $($(this).attr("href")).show();
+
+            });
+
+            $("#user-answer-tabs a.nav-link").on('click', function() {
+
+                $("#user-answer-tab-contents .tab-pane").hide();
+
+                $($(this).attr("href")).show();
+
+            });
+
+        } else {
+
+            $("a.nav-link").on('click', function() {
+
+                $(".tab-pane").hide();
+
+                $($(this).attr("href")).show();
+
+            });
+
+        }
+
+
+
+        // side bar events
+
+        $(document).ready(function() {
+
+            $("#sidebar").mCustomScrollbar({
+
+                theme: "minimal"
+
+            });
+
+
+
+            $('#sidebarCollapse').on('click', function() {
+
+                $('#sidebar, #content').toggleClass('active');
+
+                $('.collapse.in').toggleClass('in');
+
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+
+
+</html>

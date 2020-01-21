@@ -1,0 +1,15 @@
+{
+  "name": "private-blockchain",
+  "version": "1.0.0",
+  "description": "Keeping the blockchain dataset in an array is expensive to retain in the computer's memory. In addition, inefficient for long term storage.",
+  "main": "simpleChain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "level": "^6.0.0"
+  }
+}

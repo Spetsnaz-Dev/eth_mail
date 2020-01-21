@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practice Hashing</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/plyr.css">
+    <link rel="stylesheet" href="./assets/css/katex.min.css">
+    <link rel="stylesheet" href="./assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="shortcut icon" type="image/png" href="./assets/img/udacimak.png" />
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div id="content">
+            
+
+            <main class="container">
+                <div class="row">
+                    <div>
+                        <div class="ud-atom">
+                            <div>
+                                <h1 id="lets-do-some-coding-practice">Assignment 1 - Build your own Hash Function</h1>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="ud-atom">
+                            <h3></h3>
+                            <div>
+                                <h2 id="steps-to-follow">Steps to follow</h2>
+                                <blockquote>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th id="**step_1**"><strong>Step 1</strong></th>
+                                                <th id="verify_¨c0c_module_is_installed_in_your_project">Verify <code>crypto-js</code> module is installed in your project</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Step 2</strong></td>
+                                                <td>Import from <code>crypto-js</code> module the sha265 library</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Step 3</strong></td>
+                                                <td>Add the code to the <code>generateHash</code> function</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </blockquote>
+                                <p>Each step you’ll take to complete this exercise is called out in comments throughout the code. You can find more details and guidance about each of these steps in the text provided below the code. </p>
+                                <p>Let’s get started!</p>
+                            </div>
+
+                        </div>
+                        <div class="divider"></div>
+                        <div class="ud-atom">
+                            <h3></h3>
+                            <div>
+                                <h2 id="step-1-verify-crypto-js-module-is-installed-in-your-project">Step 1. Verify <code>crypto-js</code> module is installed in your project</h2>
+                                <p>It is always helpful to verify that all the module dependencies for the project are already installed. Navigate to the workspace at the bottom of this page and open your Project folder.</p>
+                                <p>Localize the <code>package.json</code> file. This is a <code>json</code> file that contains the configuration for your Node.js project. In this file, you can check the dependencies by adding: </p>
+                                <pre><code>"dependencies": {
+    "crypto-js": "^3.1.9-1"
+  }</code></pre>
+                                <p><strong>Note</strong>: Checkout <a href="https://www.npmjs.com/package/crypto-js" target="_blank">this documentation</a> to learn more about <code>crypto-js</code> modules and how to install them. </p>
+                                <p>Check if everything looks ok and move forward to the next Step.</p>
+                            </div>
+
+                        </div>
+                        <div class="divider"></div>
+                        <div class="ud-atom">
+                            <h3></h3>
+                            <div>
+                                <h2 id="step-2-import-from-crypto-js-module-the-sha265-library">Step 2. Import from <code>crypto-js</code> module the sha265 library</h2>
+                                <p>Module libraries allow you to use code developed by other people in your own project.</p>
+                                <p>Go to the <code>crypto-js</code> <a href="https://www.npmjs.com/package/crypto-js#usage" target="_blank">documentation</a> and find the piece of code to import the module into your file.</p>
+                            </div>
+
+                        </div>
+                        <div class="divider"></div>
+                        <div class="ud-atom">
+                            <h3></h3>
+                            <div>
+                                <h2 id="step-3--add-the-code-to-the-generatehash-function">Step 3. Add the code to the <code>generateHash</code> function</h2>
+                                <p>The <code>generateHash</code> function will take an object as its parameter, and it will allow us to get a hash from the object we pass into it. </p>
+                                <p>To create this function, use the <code>SHA256 ()</code> function from <code>crypto-js</code>. The <code>SHA256 ()</code> function will receive an object as its parameter and return a hash of that object. The returned value
+                                    will be logged in the console.</p>
+                                <p>To test your program, just open a new <strong><em>Terminal</em></strong> and write: <code>node hashing.js</code>. Make sure you're in the Project folder (<code>cd Project</code>).</p>
+                                <p><strong><em>Tip</em></strong>: It's always a good option to use <code>JSON.stringify(obj)</code>to convert an object to <code>String</code> and then use it to generate the hash.</p>
+                                <h3 id="how-to-run-your-application">How to run your application?</h3>
+                                <p>Open the terminal in the "+" symbol in the Workspace, now you have open a terminal. To be able to execute your code the first thing is to move to the project folder, type in your terminal <code>cd Project</code> now you
+                                    are positioning in the <strong><em>Project</em></strong> folder. To run your application type in your terminal the command <code>node hashing.js</code>.</p>
+                            </div>
+
+                        </div>
+                        <div class="divider"></div>
+                        <div class="ud-atom">
+                            <h3>
+                                <p>Select the correct Answer</p>
+                            </h3>
+                            <div>
+                                <form>
+                                    <fieldset>
+                                        <legend>
+                                            <p>Select the Hash value obtained from <code>data1</code></p>
+                                        </legend>
+                                    </fieldset>
+
+                                    <div>
+                                        <input type="radio" value="a1538061584105" name="728697" id="a1538061584105">
+                                        <label for="a1538061584105"><p>f9a8aa13efcf511cb7ac496943a3dd5c14de3a8188c36719aa4350f662957329</p></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" value="a1538061611063" name="728697" id="a1538061611063">
+                                        <label for="a1538061611063"><p>f9c19bd8cdecf3978ef91545dda47dba0c0da876674df49bb014ee50fe1fcf46</p></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" value="a1538061618873" name="728697" id="a1538061618873">
+                                        <label for="a1538061618873"><p>511b66e592a2937ae97e812f28687b6ac25d1d6b6e4333a15897f93b71193176</p></label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" value="a1538061626293" name="728697" id="a1538061626293">
+                                        <label for="a1538061626293"><p>Other Hash</p></label>
+                                    </div>
+                                </form>
+
+                                <details>
+                                    <summary><strong>SOLUTION:</strong></summary>
+                                    f9a8aa13efcf511cb7ac496943a3dd5c14de3a8188c36719aa4350f662957329
+                                </details>
+                            </div>
+
+                        </div>
+                        <div class="divider"></div>
+                        <div class="ud-atom">
+                            <h3>
+                                <p>Select the Cause</p>
+                            </h3>
+                            <div>
+                                <form>
+                                    <fieldset>
+                                        <legend>
+                                            <p>What is happening with the hash of the <code>dataObject</code> variable every time we run the program?</p>
+                                        </legend>
+                                    </fieldset>
+
+                                    <div>
+                                        <input type="checkbox" value="a1538061678770" name="728698" id="a1538061678770">
+                                        <label for="a1538061678770"><p>The hash does not ever change. </p></label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" value="a1538061705502" name="728698" id="a1538061705502">
+                                        <label for="a1538061705502"><p>The hash returned changes every 2 times I run the program.</p></label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" value="a1538061714386" name="728698" id="a1538061714386">
+                                        <label for="a1538061714386"><p>The hash changes every time I run the program.</p></label>
+                                    </div>
+                                </form>
+
+                                <details>
+                                    <summary><strong>SOLUTION:</strong></summary>
+                                    <ul>
+                                        <li>The hash changes every time I run the program.</li>
+                                    </ul>
+                                </details>
+                            </div>
+
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+
+    <script src="./assets/js/jquery-3.3.1.min.js"></script>
+    <script src="./assets/js/plyr.polyfilled.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./assets/js/katex.min.js"></script>
+    <script>
+        // Initialize Plyr video players
+        const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+        // render math equations
+        let elMath = document.getElementsByClassName('mathquill');
+        for (let i = 0, len = elMath.length; i < len; i += 1) {
+            const el = elMath[i];
+
+            katex.render(el.textContent, el, {
+                throwOnError: false
+            });
+        }
+
+        // this hack will make sure Bootstrap tabs work when using Handlebars
+        if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+            $("#question-tabs a.nav-link").on('click', function() {
+                $("#question-tab-contents .tab-pane").hide();
+                $($(this).attr("href")).show();
+            });
+            $("#user-answer-tabs a.nav-link").on('click', function() {
+                $("#user-answer-tab-contents .tab-pane").hide();
+                $($(this).attr("href")).show();
+            });
+        } else {
+            $("a.nav-link").on('click', function() {
+                $(".tab-pane").hide();
+                $($(this).attr("href")).show();
+            });
+        }
+
+        // side bar events
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+
+</html>
