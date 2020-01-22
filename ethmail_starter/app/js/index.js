@@ -10,7 +10,7 @@ import $ from 'jquery';
 
 EmbarkJS.onReady((err) => {
   // You can execute contract calls after the connection
-  $(document).ready(() => 
+  $(document).ready(() => {
     /*
     * TODO: All the event-handlers will go here. Keep it clean and understandable for the review.
     * Make sure all your code is modular (make functions)
