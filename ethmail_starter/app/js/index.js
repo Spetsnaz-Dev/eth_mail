@@ -1,6 +1,9 @@
 import EmbarkJS from 'Embark/EmbarkJS';
+import AccountBoard from 'Embark/contracts/AccountBoard';
+import MessageBoard from 'Embark/contracts/MessageBoard';
 import $ from 'jquery';
 
+const JSEncrypt = require('jsencrypt');
 /*
 * TODO: import all the essential libraries and do not forget to use jsencrypt for the encryption-
 * decryption part. All the essential smart-contracts need to imported using the following command
@@ -18,19 +21,38 @@ EmbarkJS.onReady((err) => {
     */
    
     
-
+    //when user clicks this, all the messages will disappear
     $('#messages').click(() =>{
-      
+      $('#messages').empty();
     });
 
-
+    //click signup button
     $('#signupForm button').click(() => {
+      let crypt = new JSEncrypt.JSEncrypt();
+      let publicKey = crypt.getPublicKey();
+      let privateKey = crypt.getPrivateKey();
+      //console.log("Getting info of user...");
+      let account = {
+        'name' : $('#name').val(),
+        'address' : $('#ethAddress').val(),
+        'publicKey' : publicKey
+      }
+      console.log(account);
+      console.log(privateKey);
+
+      //Now call setAccount method from AccountBoard Class
+      AccountBoard.methods.setAccount(account.address, account.publicKey, account.name).send();
+      $('#signupForm').hide();
+      alert("Congrats!! You are signed up..")
+    });
     
-    });
-
+    //send a message
     $('#sendMessage button').click(() => {
-
+      let message_res = $('#sendData').val();
+      MessageBoard.methods.writeMessage(message_res).send();
+      alert("Message Sent!");
     });
+
 
     $('#readMessages').click(() => {
       
