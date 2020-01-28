@@ -4,23 +4,15 @@ import MessageBoard from 'Embark/contracts/MessageBoard';
 import $ from 'jquery';
 
 const JSEncrypt = require('jsencrypt');
-/*
-* TODO: import all the essential libraries and do not forget to use jsencrypt for the encryption-
-* decryption part. All the essential smart-contracts need to imported using the following command
-* import Sample from 'Embark/contracts/Sample' that can be used
-*
-*/
 
 EmbarkJS.onReady((err) => {
   // You can execute contract calls after the connection
   $(document).ready(() => {
-    /*
-    * TODO: All the event-handlers will go here. Keep it clean and understandable for the review.
-    * Make sure all your code is modular (make functions)
-    * 
-    */
+   let privateKey, publicKey; //for use in readfunction()
+   let signedUp = 0;
+    $('#sendBtn').attr("disabled", true);
+    $('#readMessages').attr("disabled", true);
    
-    
     //when user clicks this, all the messages will disappear
     $('#messages').click(() =>{
       $('#messages').empty();
@@ -29,8 +21,8 @@ EmbarkJS.onReady((err) => {
     //click signup button
     $('#signupForm button').click(() => {
       let crypt = new JSEncrypt.JSEncrypt();
-      let publicKey = crypt.getPublicKey();
-      let privateKey = crypt.getPrivateKey();
+      publicKey = crypt.getPublicKey();
+      privateKey = crypt.getPrivateKey();
       //console.log("Getting info of user...");
       let account = {
         'name' : $('#name').val(),
@@ -38,11 +30,14 @@ EmbarkJS.onReady((err) => {
         'publicKey' : publicKey
       }
       //console.log(account);
-      console.log(privateKey);
+      //console.log(privateKey);
 
       //Now call setAccount method from AccountBoard Class
       AccountBoard.methods.setAccount(account.address, account.publicKey, account.name).send();
       $('#signupForm').hide();
+      signedUp = 1;
+      $('#readMessages').removeAttr("disabled");
+      $('#sendBtn').removeAttr("disabled");
       alert("Congrats!! You are signed up..")
     });
     
@@ -70,11 +65,19 @@ EmbarkJS.onReady((err) => {
 
     $('#readMessages').click(() => {
       $('#messages').empty();
-      console.log("Retreiving messages...!!")
-      MessageBoard.methods.count().call().then((c) => {
-        console.log(c);
-        readMessages(c);
-      });
+
+      //check if user is signedUp or not
+      if (signedUp === 1) {
+        console.log("Retreiving messages...!!");
+        
+        MessageBoard.methods.count().call().then((c) => {
+          console.log(c);
+          readMessages(c);
+        });
+      }
+      else {
+          alert("Please signup before proceeding!");
+        }
     });
 });
 })
@@ -88,29 +91,26 @@ const readMessages = (count) => {
   for (var i = 0; i < count; i++) {
     readMessage(i);
   }
-  $('#privateKey').empty();
+  //$('#privateKey').empty();
 }
 
 const readMessage = (messageIndex) => {
+
   MessageBoard.methods.messages(messageIndex).call().then((encrypted) => {
     console.log('Fetching the message...');
-  
+
     // Decrypt with the private key...
     let decrypt = new JSEncrypt.JSEncrypt();
-    decrypt.setPrivateKey($('#privateKey').val());
+    decrypt.setPrivateKey(privateKey);
     let decrypted = decrypt.decrypt(encrypted);
     //At first check if a user has any mail in the database or no
-    /*
-    const decrypt = new JSEncrypt.JSEncrypt();
-    decrypt.setKey($('#privateKey').val());
-    var decrypted = decrypt.decrypt(encrypted);*/
     console.log("Decrypted Msg: " + decrypted);
     // display the messages
     let tempMessage = $('#message').clone();
     tempMessage.empty();
     tempMessage.append(encrypted);
     tempMessage.show();
-    
+
     $('#messages').append(tempMessage);
   });
 }
