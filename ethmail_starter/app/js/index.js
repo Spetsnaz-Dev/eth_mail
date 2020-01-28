@@ -37,7 +37,7 @@ EmbarkJS.onReady((err) => {
         'address' : $('#ethAddress').val(),
         'publicKey' : publicKey
       }
-      console.log(account);
+      //console.log(account);
       console.log(privateKey);
 
       //Now call setAccount method from AccountBoard Class
@@ -48,28 +48,73 @@ EmbarkJS.onReady((err) => {
     
     //send a message
     $('#sendMessage button').click(() => {
+      console.log("Sending Message...");
       let message_res = $('#sendData').val();
+      let receiverEthAddress = $('#sendEthAddress').val();
+
+      //send receiver's eth-address to getaccount()---
+      AccountBoard.methods.getAccount(receiverEthAddress).call().then((publicKey) => {
+        let crypt = new JSEncrypt.JSEncrypt();
+        crypt.setKey(publicKey.toString());
+        let encrypted_msg = crypt.encrypt(message_res).toString();
+      });
+      //finally send the encrypted message
       MessageBoard.methods.writeMessage(message_res).send();
-      alert("Message Sent!");
+      $('#sendEthAddress').empty();
+      $('#sendData').empty();
+
+      console.log("Message Sent Successfully");
+      alert("Message Sent Successfully!");
     });
 
 
     $('#readMessages').click(() => {
-      
+      $('#messages').empty();
+      console.log("Retreiving messages...!!")
+      MessageBoard.methods.count().call().then((c) => {
+        console.log(c);
+        readMessages(c);
+      });
     });
-
-  });
 });
-
-
+})
 /*
-* TODO: Function should be called when the user wants to read his/her own messages after decrypting, and should 
-* individually tackle all the separate messages for decryption. Also a check needs to be done on the private-key
-* of the end-user.
-*
-*/
+  * TODO: Function should be called when the user wants to read his/her own messages after decrypting, and should
+  * individually tackle all the separate messages for decryption. Also a check needs to be done on the private-key
+  * of the end-user.
+  *
+  */
 const readMessages = (count) => {
-  
+  for (var i = 0; i < count; i++) {
+    readMessage(i);
+  }
+  $('#privateKey').empty();
 }
 
+const readMessage = (messageIndex) => {
+  MessageBoard.methods.messages(messageIndex).call().then((encrypted) => {
+    console.log('Fetching the message...');
+  
+    // Decrypt with the private key...
+    let decrypt = new JSEncrypt.JSEncrypt();
+    decrypt.setPrivateKey($('#privateKey').val());
+    let decrypted = decrypt.decrypt(encrypted);
+    //At first check if a user has any mail in the database or no
+    /*
+    const decrypt = new JSEncrypt.JSEncrypt();
+    decrypt.setKey($('#privateKey').val());
+    var decrypted = decrypt.decrypt(encrypted);*/
+    console.log("Decrypted Msg: " + decrypted);
+    // display the messages
+    let tempMessage = $('#message').clone();
+    tempMessage.empty();
+    tempMessage.append(encrypted);
+    tempMessage.show();
+    
+    $('#messages').append(tempMessage);
+  });
+}
 
+/*  TODO
+
+use the private key generated to automatically decrypt the messages and display it when the button is fired */
