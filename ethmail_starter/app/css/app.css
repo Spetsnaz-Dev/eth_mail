@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
 body {
   padding: 10px;
+  background-image: url(../../back.jpg) !important;
+  background-color: rgb(236, 246, 237);
+  background-repeat: no-repeat;
+  color: white;
+}
+/* .img-logo {
+  height: 40px;
+  width: 30px;
+} */
+.card-body {
+  background-color: #439688;
+}
+.card-title {
+  color: black;
+  font-weight: bold;
+}
+#messages {
+  color: white !important
+}
+.display-1 {
+  font-family: 'Lobster', cursive;
+  text-align : center;
+  color : steelblue;
 }

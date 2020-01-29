@@ -12,6 +12,7 @@ EmbarkJS.onReady((err) => {
    let signedUp = 0;
     $('#sendBtn').attr("disabled", true);
     $('#readMessages').attr("disabled", true);
+    $('#privateKey').hide();
    
     //when user clicks this, all the messages will disappear
     $('#messages').click(() =>{
@@ -38,6 +39,8 @@ EmbarkJS.onReady((err) => {
       signedUp = 1;
       $('#readMessages').removeAttr("disabled");
       $('#sendBtn').removeAttr("disabled");
+      $('#signUp').remove();
+      $('#welcomeMsg').append(`Welcome <b>${account.name}</b>`);
       alert("Congrats!! You are signed up..")
     });
     
